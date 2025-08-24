@@ -56,7 +56,10 @@ const Home = () => {
 
 
   return (
-    <div className="w-full h-full py-10 max-w-[1200px] mx-auto px-5 lg:px-0">
+    <div className="w-full h-full py-10 max-w-[1200px] mx-auto px-5 lg:px-0 
+                    bg-white dark:bg-gray-900 
+                    text-gray-900 dark:text-gray-100 
+                    transition-colors duration-300">
       <div className="flex flex-col gap-y-5 items-start">
         <div className="w-full flex flex-row gap-x-4 justify-between items-center">
           <input
@@ -67,17 +70,29 @@ const Home = () => {
             // Dynamic width based on whether pasteId is present
             className={`${
               pasteId ? "w-[80%]" : "w-[85%]"
-            } text-white border border-input rounded-md p-2`}
+            } bg-white dark:bg-gray-800 
+               text-gray-900 dark:text-gray-100 
+               border border-gray-300 dark:border-gray-600 
+               rounded-md p-2 
+               placeholder-gray-500 dark:placeholder-gray-400
+               focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400
+               transition-colors duration-300`}
           />
           <button
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700"
+            className="text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 
+                       focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-500 
+                       font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 
+                       transition-colors duration-300"
             onClick={createPaste}
           >
             {pasteId ? "Update Paste" : "Create My Paste"}
           </button>
 
         {pasteId &&  <button
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700"
+            className="text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 
+                       focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-500 
+                       font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 
+                       transition-colors duration-300"
             onClick={resetPaste}
           >
             <PlusCircle size={20} />
@@ -85,10 +100,16 @@ const Home = () => {
         </div>
 
         <div
-          className={`w-full flex flex-col items-start relative rounded bg-opacity-10 border border-[rgba(128,121,121,0.3)] backdrop-blur-2xl`}
+          className="w-full flex flex-col items-start relative rounded 
+                     bg-gray-50 dark:bg-gray-800 
+                     border border-gray-300 dark:border-gray-600 
+                     backdrop-blur-2xl
+                     transition-colors duration-300"
         >
           <div
-            className={`w-full rounded-t flex items-center justify-between gap-x-4 px-4 py-2 border-b border-[rgba(128,121,121,0.3)]`}
+            className="w-full rounded-t flex items-center justify-between gap-x-4 px-4 py-2 
+                       border-b border-gray-300 dark:border-gray-600
+                       transition-colors duration-300"
           >
             <div className="w-full flex gap-x-[6px] items-center select-none group">
               <div className="w-[13px] h-[13px] rounded-full flex items-center justify-center p-[1px] overflow-hidden bg-[rgb(255,95,87)]" />
@@ -105,7 +126,9 @@ const Home = () => {
             >
               {/*Copy  button */}
               <button
-                className={`flex justify-center items-center  transition-all duration-300 ease-in-out group`}
+                className="flex justify-center items-center transition-all duration-300 ease-in-out group
+                           text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800
+                           hover:text-green-600 dark:hover:text-green-400"
                 onClick={() => {
                   navigator.clipboard.writeText(value);
                   toast.success("Copied to Clipboard", {
@@ -113,7 +136,7 @@ const Home = () => {
                   });
                 }}
               >
-                <Copy className="group-hover:text-sucess-500" size={20} />
+                <Copy className="group-hover:text-green-500" size={20} />
               </button>
             </div>
           </div>
@@ -123,9 +146,14 @@ const Home = () => {
             value={value}
             onChange={(e) => setValue(e.target.value)}
             placeholder="Write Your Content Here...."
-            className="w-full p-3  focus-visible:ring-0"
+            className="w-full p-3 focus-visible:ring-0 
+                       bg-transparent 
+                       text-gray-900 dark:text-gray-100 
+                       placeholder-gray-500 dark:placeholder-gray-400
+                       resize-none outline-none
+                       transition-colors duration-300"
             style={{
-              caretColor: "#000",
+              caretColor: "#3b82f6",
             }}
             rows={20}
           />
